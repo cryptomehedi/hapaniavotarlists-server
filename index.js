@@ -20,3 +20,10 @@ app.get('/', (req, res) => {
 app.all("*", (req, res) => {
     res.send('No API Found')
 })
+
+process.on("unhandledRejection", (error) =>{
+    console.log(error.name, error.message);
+    app.close(()=>{
+        process.exit(1)
+    })
+})
