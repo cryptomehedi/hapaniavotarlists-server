@@ -1,5 +1,6 @@
 const express = require('express')
 const cors = require('cors');
+const { connectToServer } = require('./Utils/DBConnect');
 require('dotenv').config()
 
 
@@ -11,7 +12,15 @@ app.use(cors())
 app.use(express.json())
 
 
-
+connectToServer((err)=>{
+    if(!err){
+        app.listen(port, ()=> {
+            console.log( 'Server running', port);
+        })
+    } else {
+        console.log(err);
+    }
+})
 
 app.get('/', (req, res) => {
     res.send('Server Running')
