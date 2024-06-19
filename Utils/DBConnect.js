@@ -20,7 +20,7 @@ module.exports = {
                 return callback(err);
             }
 
-            dbConnection = db.db ("sample_airbnb");
+            dbConnection = db.db ("HapaniaVotarLists");
             console.log("Successfully connected to MongoDB.");
 
             return callback();

@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors');
 const { connectToServer } = require('./Utils/DBConnect');
+const votarList = require('./Routes/V1/VotarList.route');
 require('dotenv').config()
 
 
@@ -21,6 +22,12 @@ connectToServer((err)=>{
         console.log(err);
     }
 })
+
+
+// Route list
+app.use('/api/v1/votarList', votarList)
+
+
 
 app.get('/', (req, res) => {
     res.send('Server Running')
