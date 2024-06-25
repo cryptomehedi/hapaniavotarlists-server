@@ -12,7 +12,7 @@ module.exports.getAllVotar = async function (req, res, next) {
 module.exports.postVotar = async function (req, res, next) {
     try {
         const request = await req.body
-        const votar = {SLN: +request.SLN, NID: +request.NID , father: request.father, mother: request.mother, gender: request.gender, name: request.name}
+        const votar = {SLN: +request.SLN, NID: +request.NID , father: request.father, mother: request.mother, gender: request.gender, name: request.name, address: request.address}
         const query = {SLN: votar.SLN, gender: votar.gender}
         const existingVotar =await VotarListsCollection().findOne(query)
         if(existingVotar){
