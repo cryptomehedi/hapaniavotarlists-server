@@ -20,8 +20,8 @@ const dbConnect = async ()=>{
 let dbConnection;
 module.exports = {
     connectToServer: async function (callback) { 
-        await dbConnect()
         try {
+            await dbConnect()
             dbConnection = await client.db("HapaniaVotarLists");
             console.log("Successfully connected to MongoDB.");
             return callback();
